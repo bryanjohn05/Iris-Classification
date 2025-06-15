@@ -74,12 +74,6 @@ A modern web application for classifying iris flowers using machine learning mod
 - Analyze detailed metrics table
 - Compare accuracy, precision, recall, and F1-scores
 
-### Status Monitoring
-
-- Check the "Status" tab for system information
-- View model file availability
-- Monitor Python environment status
-- Get setup instructions for your environment
 
 ## 🔧 Configuration
 
