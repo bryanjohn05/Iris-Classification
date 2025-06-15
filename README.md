@@ -129,21 +129,4 @@ models/
 | KNN | 93.0% | 92.0% | 93.0% | 92.5% |
 | Decision Tree | 91.0% | 90.0% | 91.0% | 90.5% |
 
-## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 🙏 Acknowledgments
-
-- Iris dataset from UCI Machine Learning Repository
-- Scikit-learn for machine learning models
-- Next.js and Vercel for the web platform
-- Recharts for data visualization
