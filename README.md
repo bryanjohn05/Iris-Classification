@@ -31,42 +31,32 @@ A modern web application for classifying iris flowers using machine learning mod
 ### Local Setup
 
 1. **Clone the repository**
-   \`\`\`bash
+   \`\`\`
    git clone <repository-url>
    cd iris-classifier
    \`\`\`
 
 2. **Install Node.js dependencies**
-   \`\`\`bash
+   \`\`\`
    npm install
    \`\`\`
 
 3. **Install Python dependencies**
-   \`\`\`bash
+   \`\`\`
    pip install scikit-learn pandas numpy joblib
    \`\`\`
 
 4. **Train the models** (optional for real predictions)
-   \`\`\`bash
+   \`\`\`
    python scripts/train_models.py
    \`\`\`
 
 5. **Start the development server**
-   \`\`\`bash
+   \`\`\`
    npm run dev
    \`\`\`
 
-### Vercel Deployment
 
-1. **Deploy to Vercel**
-   \`\`\`bash
-   vercel deploy
-   \`\`\`
-
-2. **For real models** (optional):
-   - Deploy Python backend separately (Railway, Render, AWS Lambda)
-   - Set `PYTHON_SERVICE_URL` environment variable in Vercel
-   - Upload trained models to your Python service
 
 ## 🎯 Usage
 
