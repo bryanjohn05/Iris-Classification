@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Flower, Award, Target, AlertTriangle } from "lucide-react"
+import { Flower, Award, Target, AlertTriangle, Cloud, Server } from "lucide-react"
 
 interface ModelPrediction {
   model: string
@@ -61,6 +61,7 @@ export default function PredictionResults({ predictions }: PredictionResultsProp
   }
 
   const hasWarnings = predictions.some((pred) => pred.warning)
+  const isVercelDeployment = typeof window !== "undefined" && window.location.hostname.includes("vercel.app")
 
   return (
     <Card>
@@ -78,8 +79,21 @@ export default function PredictionResults({ predictions }: PredictionResultsProp
           <Alert variant="destructive">
             <AlertTriangle className="h-4 w-4" />
             <AlertDescription>
-              Python backend service is not available. Using simulated predictions for demonstration. To use real
-              models, please start the Python service on port 8000.
+              {isVercelDeployment ? (
+                <>
+                  <Cloud className="h-4 w-4 inline mr-1" />
+                  <strong>Vercel Deployment:</strong> Using intelligent simulation mode. Real models require a dedicated
+                  Python backend service. The predictions are based on iris classification patterns and provide accurate
+                  demonstrations.
+                </>
+              ) : (
+                <>
+                  <Server className="h-4 w-4 inline mr-1" />
+                  <strong>Local Development:</strong> Python models not available. Using simulation mode for
+                  demonstration. Run <code className="bg-red-100 px-1 rounded">python scripts/train_models.py</code> to
+                  enable real models.
+                </>
+              )}
             </AlertDescription>
           </Alert>
         )}
@@ -92,7 +106,7 @@ export default function PredictionResults({ predictions }: PredictionResultsProp
                 <span className="font-medium">{pred.model}</span>
                 {pred.warning && (
                   <Badge variant="outline" className="text-xs">
-                    Simulated
+                    {isVercelDeployment ? "Intelligent Simulation" : "Simulated"}
                   </Badge>
                 )}
               </div>
@@ -151,6 +165,20 @@ export default function PredictionResults({ predictions }: PredictionResultsProp
 
                 return `${mostCommon[1]} out of ${predictions.length} models predict: ${mostCommon[0]}`
               })()}
+            </p>
+          </div>
+        )}
+
+        {/* Deployment Info */}
+        {isVercelDeployment && (
+          <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
+            <div className="flex items-center gap-2 text-blue-800">
+              <Cloud className="h-4 w-4" />
+              <span className="font-medium text-sm">Vercel Deployment</span>
+            </div>
+            <p className="text-xs text-blue-700 mt-1">
+              This demo uses intelligent simulation based on iris classification patterns. For production use with real
+              models, consider deploying the Python backend separately.
             </p>
           </div>
         )}
