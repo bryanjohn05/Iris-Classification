@@ -123,7 +123,7 @@ export default function IrisClassifier() {
             Classify iris flowers using trained machine learning models
           </p>
           <div className="hover:text-blue-600">
-            <Link href="">View Dataset</Link>
+            <Link href="https://github.com/bryanjohn05/Iris-Classification/blob/main/dataset%20and%20Phase1/Iris.csv">View Dataset</Link>
           </div>
         </div>
 
